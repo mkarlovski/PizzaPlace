@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace PizzaPlace.Repositories
 {
-    public class OfferRepository :IOfferRepository
+    public class MenuItemRepository : IMenuItemRepository
     {
         private readonly PizzaPlaceDbContext context;
 
-        public OfferRepository(PizzaPlaceDbContext context)
+        public MenuItemRepository(PizzaPlaceDbContext context)
         {
             this.context = context;
         }
-        public List<Offer> GetAll()
+        public List<MenuItem> GetAll()
         {
-            return context.Offers.ToList();
+            return context.MenuItems.ToList();
         }
     }
 }

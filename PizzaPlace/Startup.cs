@@ -11,6 +11,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PizzaPlace.Models;
+using PizzaPlace.Repositories;
+using PizzaPlace.Repositories.Interfaces;
+using PizzaPlace.Services;
+using PizzaPlace.Services.Interfaces;
 
 namespace PizzaPlace
 {
@@ -36,6 +40,11 @@ namespace PizzaPlace
             services.AddDbContext<PizzaPlaceDbContext>(options =>
             options.UseSqlServer("Data Source =.\\SQLEXPRESS; Initial Catalog = PizzPlace; Integrated Security = true"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddTransient<IOfferService, OfferService>();
+            services.AddTransient<IOfferRepository, OfferRepository>();
+            services.AddTransient<IMenuItemService, MenuItemService>();
+            services.AddTransient<IMenuItemRepository,MenuItemRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
