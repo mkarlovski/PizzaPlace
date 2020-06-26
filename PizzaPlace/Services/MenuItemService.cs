@@ -1,6 +1,7 @@
 ﻿using PizzaPlace.Models;
 using PizzaPlace.Repositories.Interfaces;
 using PizzaPlace.Services.Interfaces;
+using PizzaPlace.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,11 @@ namespace PizzaPlace.Services
         public List<MenuItem> GetAll()
         {
             return repository.GetAll();
+        }
+
+        public MenuItem GetById(int id)
+        {
+            return repository.GetById(id);
         }
     }
 }
