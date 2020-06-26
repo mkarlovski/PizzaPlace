@@ -16,5 +16,6 @@ namespace PizzaPlace.Models
         public DbSet<Offer> Offers { get; set; }    //so ova kazuvame kako ke se vika tabelata vo baza i koj model ke go koristi
         public DbSet<MenuItem> MenuItems { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
     }
 }

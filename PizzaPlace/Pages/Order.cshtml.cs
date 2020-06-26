@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using PizzaPlace.Models;
 using PizzaPlace.Services.Interfaces;
 using PizzaPlace.ViewModels;
 
@@ -30,7 +31,7 @@ namespace PizzaPlace
 
             if (ModelState.IsValid)
             {
-                var order = new OrderViewModel()
+                var order = new Order()
                 {
                     Name = Order.Name,
                     Surname = Order.Surname,

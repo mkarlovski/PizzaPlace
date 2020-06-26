@@ -1,5 +1,5 @@
 ﻿using PizzaPlace.Models;
-using PizzaPlace.Repositories.Interfaces;
+using PizzaPlace.Repositories;
 using PizzaPlace.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace PizzaPlace.Services
 {
-    public class OrderService : IOrderService
+    public class FeedbackService : IFeedbackService
     {
-        private readonly IOrderRepository repository;
+        private readonly IFeedbackRepository repository;
 
-        public OrderService(IOrderRepository repository )
+        public FeedbackService(IFeedbackRepository repository)
         {
             this.repository = repository;
         }
 
-        public void Add(Order order)
+        public void Add(Feedback feedback)
         {
-            repository.Add(order);
+            repository.Add(feedback);
         }
     }
 }
