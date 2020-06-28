@@ -49,6 +49,8 @@ namespace PizzaPlace
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IFeedbackRepository, FeedbackRepository>();
             services.AddTransient<IFeedbackService, FeedbackService>();
+            services.AddTransient<ISubscriptionRepository,SubscriptionRepository>();
+            services.AddTransient<ISubscriptionService,SubscriptionService>();
 
         }
 
