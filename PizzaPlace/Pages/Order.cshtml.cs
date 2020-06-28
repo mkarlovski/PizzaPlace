@@ -61,9 +61,10 @@ namespace PizzaPlace
                 {
                     subscriptionService.Add(email);
 
-                    return RedirectToPage("Confirmation", "Subscription");
+                    return RedirectToPage("Confirmation", "Subscribe");
                 }
                 ErrorMessage = "User already exists";
+                return Page();
             }
 
             ErrorMessage = "Please enter email";
