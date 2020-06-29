@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id}"
 @model PizzaPlace.DetailsModel
 @{
     ViewData["Title"] = "Details";
@@ -7,7 +7,7 @@
 <h1>Details</h1>
 
 <div class="container">
-    <img width="100%" src="@Model.MenuItem.ImageUrl" />
+    <img style="width:100%" src="@Model.MenuItem.ImageUrl" />
     <h1 style="text-align:center">@Model.MenuItem.Title</h1>
     <p style="text-align:center">@Model.MenuItem.Description</p>
 
