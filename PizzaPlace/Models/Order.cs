@@ -17,8 +17,10 @@ namespace PizzaPlace.Models
         public string Address { get; set; }
         [Phone]
         [Required]
-        public int Phone { get; set; }
+        public string Phone { get; set; }
         [Required]
         public string Message { get; set; }
+        [Required]
+        public bool IsProcessed { get; set; }
     }
 }
