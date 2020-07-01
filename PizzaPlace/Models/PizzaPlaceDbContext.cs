@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PizzaPlace.Models
 {
-    public class PizzaPlaceDbContext :DbContext
+    public class PizzaPlaceDbContext :IdentityDbContext
     {
         public PizzaPlaceDbContext(DbContextOptions<PizzaPlaceDbContext> options) : base(options)
         {
