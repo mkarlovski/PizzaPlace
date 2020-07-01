@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using PizzaPlace.Services.Interfaces;
@@ -9,6 +10,7 @@ using PizzaPlace.ViewModels;
 
 namespace PizzaPlace
 {
+    [Authorize]
     public class OrdersListModel : PageModel
     {
         private readonly IOrderService orderService;
@@ -38,6 +40,14 @@ namespace PizzaPlace
         public IActionResult OnGetSetProcessed(int id)
         {
             orderService.SetProcessed(id);
+            return RedirectToPage();
+        }
+
+        public IActionResult OnGetNotProcessed()
+        {
+            //zemi site od baza i izfiltriraj site sto ne se processed
+            //convert to viewModel
+            var orders = orderService.GetByStatus(false);
             return RedirectToPage();
         }
     }

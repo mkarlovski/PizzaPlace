@@ -40,7 +40,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-page="/Feedback">Feedback</a>
                         </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Admin/OrdersList">Orders</a>
+                            </li>
+                        }
+                        <partial name="_LoginPartial" />
                     </ul>
+                    
                 </div>
             </div>
         </nav>

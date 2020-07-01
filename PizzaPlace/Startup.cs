@@ -41,7 +41,11 @@ namespace PizzaPlace
             services.AddDbContext<PizzaPlaceDbContext>(options =>
             options.UseSqlServer("Data Source =.\\SQLEXPRESS; Initial Catalog = PizzPlace; Integrated Security = true"));
 
-            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<PizzaPlaceDbContext>();  //ova go dodavame ako sakame da koristime Identity
+            services.AddDefaultIdentity<IdentityUser>()
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<PizzaPlaceDbContext>();  //ova go dodavame ako sakame da koristime Identity
+
+
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequiredLength = 8;

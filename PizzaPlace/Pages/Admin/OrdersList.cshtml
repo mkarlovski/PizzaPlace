@@ -1,10 +1,14 @@
-﻿@page   "/Admin/OrdersList"
+﻿@page  
 @model PizzaPlace.OrdersListModel
 @{
     ViewData["Title"] = "OrdersList";
 }
 
 <h1>OrdersList</h1>
+
+
+<a asp-page="OrdersList" class="btn btn-primary">All</a>
+<a asp-page="OrdersList" asp-page-handler="NotProcessed" class="btn btn-primary">NotProcessed</a>
 
 
 <table class="table table-bordered table-hover">

@@ -32,6 +32,11 @@ namespace PizzaPlace.Repositories
             return context.Orders.FirstOrDefault(x=>x.Id==id);
         }
 
+        public List<Order> GetByStatus(bool status)
+        {
+            return context.Orders.Where(x => x.IsProcessed == status).ToList();
+        }
+
         public void Update(Order order)
         {
             context.Orders.Update(order);

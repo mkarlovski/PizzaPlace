@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PizzaPlace.Models
 {
-    public class PizzaPlaceDbContext :IdentityDbContext
+    public class PizzaPlaceDbContext :IdentityDbContext   //ova se menuva od DbContext vo Identity Context koj sto krajno nasleduva od DbContext 
     {
         public PizzaPlaceDbContext(DbContextOptions<PizzaPlaceDbContext> options) : base(options)
         {

@@ -32,6 +32,11 @@ namespace PizzaPlace.Services
             return repository.GetById(id);
         }
 
+        public List<Order> GetByStatus(bool status)
+        {
+            return repository.GetByStatus(status);
+        }
+
         public void SetProcessed(int id)
         {
             var order = GetById(id);
