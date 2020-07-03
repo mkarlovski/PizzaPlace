@@ -12,4 +12,6 @@
     <p style="text-align:center">@Model.MenuItem.Description</p>
 
     <h2>Price: @Model.MenuItem.Price</h2>
+
+    <h2><a asp-page="Order" asp-route-message="@Model.MenuItem.Title" class="btn btn-primary">ORDER</a></h2>
 </div>

@@ -25,8 +25,13 @@ namespace PizzaPlace
 
         public string ErrorMessage { get; set; }
 
-        public void OnGet()
+        public void OnGet(string message)
         {
+            if (!string.IsNullOrEmpty(message))
+            {
+                Order = new OrderViewModel();
+                Order.Message = message;
+            }
 
 
         }
