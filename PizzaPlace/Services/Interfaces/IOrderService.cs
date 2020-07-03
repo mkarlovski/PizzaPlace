@@ -13,6 +13,7 @@ namespace PizzaPlace.Services.Interfaces
         List<Order> GetAll();
         Order GetById(int id);
         void SetProcessed(int id);
-        List<Order> GetByStatus(bool v);
+        List<Order> GetByStatus(bool IsProcessed, bool IsDelivered);
+        void SetDelivered(int id);
     }
 }

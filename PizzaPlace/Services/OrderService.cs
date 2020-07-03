@@ -32,9 +32,21 @@ namespace PizzaPlace.Services
             return repository.GetById(id);
         }
 
-        public List<Order> GetByStatus(bool status)
+        
+
+        public List<Order> GetByStatus(bool IsProcessed, bool IsDelivered)
         {
-            return repository.GetByStatus(status);
+            return repository.GetByStatus(IsProcessed, IsDelivered);
+        }
+
+        public void SetDelivered(int id)
+        {
+            var order = GetById(id);
+            if (order != null)
+            {
+                order.IsDelivered = true;
+                repository.Update(order);
+            }
         }
 
         public void SetProcessed(int id)

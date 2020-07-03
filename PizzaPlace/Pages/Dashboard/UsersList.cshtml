@@ -1,0 +1,65 @@
+﻿@page
+@model PizzaPlace.UsersListModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager  
+@inject UserManager<IdentityUser> UserManager
+@{
+    Layout = "_LayoutDashboard";
+    ViewData["Title"] = "UsersList";
+}
+
+
+
+<div class="container">
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Roles Action</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Users)
+            {
+                <tr>
+                    @*email column*@
+                    <td>@user.Email</td>
+                    <td>
+                        @foreach(var role in await UserManager.GetRolesAsync(user)) //sekogas koga ima Async mora i await
+                        {                                                                           //so ova gi zemame site Roles sto  gi ima toj korisnik
+                            <p>@role</p>
+                        }
+                    </td>
+
+                    @*role action column*@
+                    <td>
+                        @foreach (var role in Model.Roles)
+                        {
+                            @if (await UserManager.IsInRoleAsync(user, role.Name))
+                            {
+                                <p>
+                                    <a asp-page-handler="RemoveRole" asp-route-userId="@user.Id" asp-route-roleName="@role.Name" class="text-danger">Remove @role.Name.ToLower() role</a>
+                                </p>
+                            }
+                            else
+                            {
+                                <p>
+                                    <a asp-page-handler="AddRole" asp-route-userId="@user.Id" asp-route-roleName="@role.Name" class="text-success">Add @role.Name.ToLower() role</a>
+                                    
+                                </p>
+                            }
+                        }
+                    </td>
+
+                    <td>
+                    <a asp-page-handler="Delete" asp-route-userId="@user.Id" class="text-danger">Delete</a>
+                    </td>
+                       
+    
+                    </tr>
+            }
+        </tbody>
+    </table>
+</div>

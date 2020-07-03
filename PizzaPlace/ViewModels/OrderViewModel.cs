@@ -23,6 +23,8 @@ namespace PizzaPlace.ViewModels
         public string Message { get; set; }
         [Required]
         public bool IsProcessed { get; set; }
+        [Required]
+        public bool IsDelivered { get; set; }
 
 
     }
